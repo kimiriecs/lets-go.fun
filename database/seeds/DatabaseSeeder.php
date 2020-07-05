@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,6 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(BlogCategoriesTableSeeder::class);
+        $this->call(BlogPostsTableSeeder::class);
+        //factory(\App\Models\BlogPost::class, 2)->create();
     }
 }

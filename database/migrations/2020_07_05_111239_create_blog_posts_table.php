@@ -15,8 +15,10 @@ class CreateBlogPostsTable extends Migration
     {
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('blog_category_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('blog_category_id')->constrained();
+            // $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('blog_category_id');
 
             $table->string('slug')->unique();
             $table->string('title'); 
@@ -34,10 +36,10 @@ class CreateBlogPostsTable extends Migration
 
             $table->index('is_published');
         });
-        Schema::table('blog_posts', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('blog_category_id')->references('id')->on('blog_categories')->onDelete('cascade');
-        });
+        // Schema::table('blog_posts', function (Blueprint $table) {
+        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        //     $table->foreign('blog_category_id')->references('id')->on('blog_categories')->onDelete('cascade');
+        // });
     }
 
     /**
