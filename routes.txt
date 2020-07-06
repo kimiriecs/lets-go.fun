@@ -1,0 +1,74 @@
++--------+-----------+-------------------------------+-----------------------+---------------------------------------------------------------+---------------------------------------------------------+
+| Domain | Method    | URI                           | Name                  | Action                                                        | Middleware                                              |
++--------+-----------+-------------------------------+-----------------------+---------------------------------------------------------------+---------------------------------------------------------+
+|        | GET|HEAD  | /                             |                       | Closure                                                       | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | GET|HEAD  | _debugbar/assets/javascript   | debugbar.assets.js    | Barryvdh\Debugbar\Controllers\AssetController@js              | Barryvdh\Debugbar\Middleware\DebugbarEnabled            |
+|        |           |                               |                       |                                                               | Closure                                                 |
+|        | GET|HEAD  | _debugbar/assets/stylesheets  | debugbar.assets.css   | Barryvdh\Debugbar\Controllers\AssetController@css             | Barryvdh\Debugbar\Middleware\DebugbarEnabled            |
+|        |           |                               |                       |                                                               | Closure                                                 |
+|        | DELETE    | _debugbar/cache/{key}/{tags?} | debugbar.cache.delete | Barryvdh\Debugbar\Controllers\CacheController@delete          | Barryvdh\Debugbar\Middleware\DebugbarEnabled            |
+|        |           |                               |                       |                                                               | Closure                                                 |
+|        | GET|HEAD  | _debugbar/clockwork/{id}      | debugbar.clockwork    | Barryvdh\Debugbar\Controllers\OpenHandlerController@clockwork | Barryvdh\Debugbar\Middleware\DebugbarEnabled            |
+|        |           |                               |                       |                                                               | Closure                                                 |
+|        | GET|HEAD  | _debugbar/open                | debugbar.openhandler  | Barryvdh\Debugbar\Controllers\OpenHandlerController@handle    | Barryvdh\Debugbar\Middleware\DebugbarEnabled            |
+|        |           |                               |                       |                                                               | Closure                                                 |
+|        | GET|HEAD  | _debugbar/telescope/{id}      | debugbar.telescope    | Barryvdh\Debugbar\Controllers\TelescopeController@show        | Barryvdh\Debugbar\Middleware\DebugbarEnabled            |
+|        |           |                               |                       |                                                               | Closure                                                 |
+|        | GET|HEAD  | api/user                      |                       | Closure                                                       | App\Http\Middleware\Authenticate:api                    |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\ThrottleRequests:60,1     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | GET|HEAD  | home                          | home                  | App\Http\Controllers\HomeController@index                     | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | App\Http\Middleware\Authenticate                        |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | GET|HEAD  | rest                          | restTest.index        | App\Http\Controllers\RestTestController@index                 | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | POST      | rest                          | restTest.store        | App\Http\Controllers\RestTestController@store                 | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | GET|HEAD  | rest/create                   | restTest.create       | App\Http\Controllers\RestTestController@create                | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | GET|HEAD  | rest/{rest}                   | restTest.show         | App\Http\Controllers\RestTestController@show                  | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | PUT|PATCH | rest/{rest}                   | restTest.update       | App\Http\Controllers\RestTestController@update                | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | DELETE    | rest/{rest}                   | restTest.destroy      | App\Http\Controllers\RestTestController@destroy               | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
+|        | GET|HEAD  | rest/{rest}/edit              | restTest.edit         | App\Http\Controllers\RestTestController@edit                  | App\Http\Middleware\EncryptCookies                      |
+|        |           |                               |                       |                                                               | Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse |
+|        |           |                               |                       |                                                               | Illuminate\Session\Middleware\StartSession              |
+|        |           |                               |                       |                                                               | Illuminate\View\Middleware\ShareErrorsFromSession       |
+|        |           |                               |                       |                                                               | App\Http\Middleware\VerifyCsrfToken                     |
+|        |           |                               |                       |                                                               | Illuminate\Routing\Middleware\SubstituteBindings        |
++--------+-----------+-------------------------------+-----------------------+---------------------------------------------------------------+---------------------------------------------------------+
