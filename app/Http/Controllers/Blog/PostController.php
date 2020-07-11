@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Blog;
 
+use App\Models\BlogPost;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Blog\BaseController as BaseController;
 
-class RestTestController extends Controller
+class PostController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,10 @@ class RestTestController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $items = BlogPost::all();
+        //$items = BlogPost::where('user_id', 1)->first();
+        //dd($items);
+        return view('blog.posts.index', compact('items'));
     }
 
     /**

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Blog\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Blog\Admin\BaseController as BaseController;
 
-class RestTestController extends Controller
+class CategoryController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class RestTestController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        //
     }
 
     /**
