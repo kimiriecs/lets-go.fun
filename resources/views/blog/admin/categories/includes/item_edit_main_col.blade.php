@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="description">Описание категории</label>
                             <textarea name="description" id="description" class="form-control" rows="3">
-                                {{ $item->description }}
+                                {{ old('description', $item->description) }}
                             </textarea>
                         </div>
                     </div>
