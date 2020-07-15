@@ -35,11 +35,12 @@ $groupedata = [
     'prefix' => 'admin/blog',
 ];
 Route::group($groupedata, function () {
-    $methods = ['index', 'edit', 'update', 'create', 'store',];
+    $methods = ['index', 'edit', 'update', 'create', 'store'];
     Route::resource('categories', 'CategoryController')
         ->only($methods)
-        ->names('blog.admin.categories')
-        ->parameters([
-            'categories' => 'category_id'
-        ]);
+        ->names('blog.admin.categories');
+        // ->parameters([
+        //     'categories' => 'category_id'
+        // ]);   
 });
+

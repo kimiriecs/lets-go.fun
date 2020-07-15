@@ -16,7 +16,7 @@ class CategoryController extends BaseController
     public function index()
     {
         $paginator = BlogCategory::paginate(15);
-        return view('blog.admin.categories.index', compact('paginator'));
+        return view('blog.admin.category.index', compact('paginator'));
     }
 
     /**
@@ -59,7 +59,15 @@ class CategoryController extends BaseController
      */
     public function edit($id)
     {
-        //
+        // $item[] = BlogCategory::find($id); //вернет null если нет категории
+        // $item[] = BlogCategory::findOrFail($id); //вернет 404 если нет категории
+        // $item[] = BlogCategory::where('id','...', $id)->first(); //('...','=' или '>' или '<', $...), по умолчанию '='
+        // dd(colect($item)->pluck('id'));
+
+        $item = BlogCategory::findOrFail($id);
+        $categoryList = BlogCategory::all();
+        //dd(__METHOD__, $categoryList);
+        return view('blog.admin.category.edit', compact('item', 'categoryList'));
     }
 
     /**
@@ -71,7 +79,7 @@ class CategoryController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        dd(__METHOD__, $request->all(), $id);
     }
 
     /**
