@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button type="button" class="btn btn-primary" href="{{ route('blog.admin.categories.create') }}">
+                <a type="button" class="btn btn-primary" href="{{ route('blog.admin.categories.create') }}">
                     <span class="">Добавть категорию</span>
-                </button>
+                </a>
             </nav>
             <div class="card">
                 <div class="card-body">
