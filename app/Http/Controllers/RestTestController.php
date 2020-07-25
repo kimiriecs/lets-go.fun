@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\BlogPost;
 
 class RestTestController extends Controller
 {
@@ -13,7 +14,9 @@ class RestTestController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $posts = BlogPost::paginate(15);
+        //dd($posts);
+        return view('restTest.index', compact('posts'));
     }
 
     /**
@@ -23,7 +26,8 @@ class RestTestController extends Controller
      */
     public function create()
     {
-        //
+        return view('restTest.create');
+        $action = BlogPost::firstOrCreate();
     }
 
     /**
