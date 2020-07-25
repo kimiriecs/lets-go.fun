@@ -70,6 +70,7 @@ class BlogCategoryRepository extends CoreRepository //implements Interface
         ->selectRaw($collumns) // ->selectRaw(implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title'])) 
         ->toBase() //преобразует полученную коллекцию в STD_class
         ->get();
+        //dd($result);
 
     return $result;
   }
@@ -88,7 +89,7 @@ class BlogCategoryRepository extends CoreRepository //implements Interface
     $result = $this
           ->startConditions()
           ->select($collumns)
-          // уточнить что скрыто ***
+          // уточнить что скрыто
           ->paginate($perPage);
           
     return $result;

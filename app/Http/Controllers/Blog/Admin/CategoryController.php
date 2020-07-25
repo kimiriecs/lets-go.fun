@@ -76,7 +76,7 @@ class CategoryController extends BaseController
             abort(404);
         }
 
-        $categoryList = $this->blogCategoryRepository->getForCombobox($item->parent_id);
+        $categoryList = $this->blogCategoryRepository->getForCombobox();
 
         return view('blog.admin.categories.edit', compact('item', 'categoryList'));
     }
@@ -128,8 +128,7 @@ class CategoryController extends BaseController
 
              //$item = BlogCategory::find($id);
         */
-
-       
+    
         $item = $this->blogCategoryRepository->getEdit($id);
         
         if (empty($item)) {
