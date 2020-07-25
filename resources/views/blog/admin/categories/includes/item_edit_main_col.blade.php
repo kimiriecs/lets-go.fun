@@ -37,7 +37,8 @@
                                     selected
                                     @endif
                                     >
-                                    {{ $categoryOption->id }}. {{ $categoryOption->title }}
+                                    {{--  {{ $categoryOption->id }}. {{ $categoryOption->title }}  --}}
+                                    {{ $categoryOption->id_title }}
                                 </option>
                                 @endforeach
 

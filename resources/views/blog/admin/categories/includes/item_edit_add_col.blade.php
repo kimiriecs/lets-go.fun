@@ -1,4 +1,4 @@
-{{--  @php /**@var \App\Models\BlogCategory $item*/ @endphp  --}}
+@php /**@var \App\Models\BlogCategory $item*/ @endphp
 
 <div class="row justify-content-center">
     <div class="col-md-12">
@@ -29,6 +29,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="created_at">Создана</label>
+                        {{--  {{ dd($item) }}  --}}
                         <input name="created_at" id="created_at" value="{{ $item->created_at }}"
                             type="text"
                             class="form-control"
