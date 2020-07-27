@@ -2,15 +2,15 @@
 namespace App\Repositories;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\BlogCategory as Model;
+use App\Models\BlogPost as Model;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class BlogCategoryRepository
+ * Class BlogPostRepository
  * 
  * @package App\Repositories
  */
-class BlogCategoryRepository extends CoreRepository //implements Interface
+class BlogPostRepository extends CoreRepository //implements Interface
 {
   /**
    * @return string
@@ -44,7 +44,7 @@ class BlogCategoryRepository extends CoreRepository //implements Interface
     */
     
 
-    $columns = implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title']);
+    $collumns = implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title']);
 
     /* OLD
       $result_1[] = $this->startConditions()->all();
@@ -58,7 +58,7 @@ class BlogCategoryRepository extends CoreRepository //implements Interface
        $result[] = $this
         ->startConditions()
         // ->selectRaw(implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title']))
-        ->selectRaw($columns)
+        ->selectRaw($collumns)
         ->toBase() //преобразует полученную коллекцию в STD_class
         ->get();
 
@@ -67,10 +67,9 @@ class BlogCategoryRepository extends CoreRepository //implements Interface
     
     $result = $this
         ->startConditions()
-        ->selectRaw($columns) // ->selectRaw(implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title'])) 
+        ->selectRaw($collumns) // ->selectRaw(implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title'])) 
         ->toBase() //преобразует полученную коллекцию в STD_class
         ->get();
-        //dd($result);
 
     return $result;
   }
@@ -84,12 +83,12 @@ class BlogCategoryRepository extends CoreRepository //implements Interface
    */
   public function getAllWithPaginate($perPage = null)
   {
-    $columns = ['id', 'title', 'parent_id'];
+    $collumns = ['id', 'title', 'parent_id'];
 
     $result = $this
           ->startConditions()
-          ->select($columns)
-          // уточнить что скрыто
+          ->select($collumns)
+          // уточнить что скрыто ***
           ->paginate($perPage);
           
     return $result;

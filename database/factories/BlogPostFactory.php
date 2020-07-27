@@ -19,9 +19,9 @@ use Illuminate\Support\Str;
 
 $factory->define(\App\Models\BlogPost::class, function (Faker $faker) {
     //$titleLength = rand(3, 8);
-    $title = $faker->sentence(rand(3, 8), true);
+    $title = $faker->sentence(rand(2, 4), true);
     //$txtLength = rand(100, 400);
-    $txt = $faker->realtext(rand(2000, 3000));
+    $txt = $faker->realtext(rand(1000, 1500));
     $createdAt = $faker->dateTimeBetween('-3 month', '-2 month');
     $isPublished = rand(1, 5) > 1;
 

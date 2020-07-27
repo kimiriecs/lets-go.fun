@@ -7,7 +7,6 @@
 @if ($item->exists)
 <form action="{{ route('blog.admin.categories.update', $item->id) }}" method="POST">
     @method('PATCH')
-    {{--  {!! dd($item->id) !!}  --}}
 @else
 <form action="{{ route('blog.admin.categories.store', $item->id) }}" method="POST">  
 @endif
