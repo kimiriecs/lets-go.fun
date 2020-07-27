@@ -84,7 +84,7 @@ class BlogPostRepository extends CoreRepository //implements Interface
   public function getAllWithPaginate($perPage = null)
   {
     // $columns = ['title', 'excerpt'];
-    $columns = ['title', 'content_html'];
+    $columns = ['id','title', 'content_html'];
 
     $result = $this
           ->startConditions()
