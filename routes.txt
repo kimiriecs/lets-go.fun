@@ -1,9 +1,14 @@
-+-----------+------------------------------------------+------------------------------+-----------------------------------------------------------+
-| Method    | URI                                      | Name                         | Action                                                    |
-+-----------+------------------------------------------+------------------------------+-----------------------------------------------------------+
-| GET|HEAD  | admin/blog/categories                    | blog.admin.categories.index  | App\Http\Controllers\Blog\Admin\CategoryController@index  |
-| POST      | admin/blog/categories                    | blog.admin.categories.store  | App\Http\Controllers\Blog\Admin\CategoryController@store  |
-| GET|HEAD  | admin/blog/categories/create             | blog.admin.categories.create | App\Http\Controllers\Blog\Admin\CategoryController@create |
-| PUT|PATCH | admin/blog/categories/{category_id}      | blog.admin.categories.update | App\Http\Controllers\Blog\Admin\CategoryController@update |
-| GET|HEAD  | admin/blog/categories/{category_id}/edit | blog.admin.categories.edit   | App\Http\Controllers\Blog\Admin\CategoryController@edit   |
-+-----------+------------------------------------------+------------------------------+-----------------------------------------------------------+
++-----------+---------------------------------------+------------------------------+-----------------------------------------------------------+
+| Method    | URI                                   | Name                         | Action                                                    |
++-----------+---------------------------------------+------------------------------+-----------------------------------------------------------+
+| GET|HEAD  | admin/blog/categories                 | blog.admin.categories.index  | App\Http\Controllers\Blog\Admin\CategoryController@index  |
+| POST      | admin/blog/categories                 | blog.admin.categories.store  | App\Http\Controllers\Blog\Admin\CategoryController@store  |
+| GET|HEAD  | admin/blog/categories/create          | blog.admin.categories.create | App\Http\Controllers\Blog\Admin\CategoryController@create |
+| PUT|PATCH | admin/blog/categories/{category}      | blog.admin.categories.update | App\Http\Controllers\Blog\Admin\CategoryController@update |
+| GET|HEAD  | admin/blog/categories/{category}/edit | blog.admin.categories.edit   | App\Http\Controllers\Blog\Admin\CategoryController@edit   |
+| GET|HEAD  | admin/blog/posts                      | blog.admin.posts.index       | App\Http\Controllers\Blog\Admin\PostController@index      |
+| POST      | admin/blog/posts                      | blog.admin.posts.store       | App\Http\Controllers\Blog\Admin\PostController@store      |
+| GET|HEAD  | admin/blog/posts/create               | blog.admin.posts.create      | App\Http\Controllers\Blog\Admin\PostController@create     |
+| PUT|PATCH | admin/blog/posts/{post}               | blog.admin.posts.update      | App\Http\Controllers\Blog\Admin\PostController@update     |
+| GET|HEAD  | admin/blog/posts/{post}/edit          | blog.admin.posts.edit        | App\Http\Controllers\Blog\Admin\PostController@edit       |
++-----------+---------------------------------------+------------------------------+-----------------------------------------------------------+

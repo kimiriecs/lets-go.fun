@@ -17,12 +17,21 @@
             <div class="card">
                 <div class="card-body">
                     <h1>здесь будут посты</h1>
+                    @foreach ($paginator as $item)
+                    <a href="{{ route('blog.admin.posts.edit', $item->id) }}">
+                        {{ $item->title }}
+                    </a>
+                    <div class="post-content">
+                        {{--  {{ $item->excerpt }}  --}}
+                        {{ $item->content_html }}
+                    </div>
+                    @endforeach
                 </div>
             </div>
             
-            {{--  @if ($paginator->total() > $paginator->count())
+            @if ($paginator->total() > $paginator->count())
             {{ $paginator->links() }}
-            @endif  --}}
+            @endif
             
         </div>
     </div>

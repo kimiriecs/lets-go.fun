@@ -36,11 +36,11 @@ class PostController extends BaseController
      */
     public function index()
     {
-        // $paginator = $this->blogCategoryRepository->getAllWithPaginate(5);
-        
-        // return view('blog.admin.posts.index', compact('paginator'));
+        $paginator = $this->blogPostRepository->getAllWithPaginate(20);
+        // dd($paginator);
+        return view('blog.admin.posts.index', compact('paginator'));
 
-        return view('blog.admin.posts.index');
+        // return view('blog.admin.posts.index');
     }
 
     /**
