@@ -88,8 +88,8 @@ class BlogPostRepository extends CoreRepository //implements Interface
 
     $result = $this
           ->startConditions()
-          // ->select($columns)
-          ->first($columns)
+          ->select($columns)
+          // ->first($columns)
           ->toBase()
           // уточнить что скрыто ***
           ->paginate($perPage);
