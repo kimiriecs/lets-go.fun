@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION_da', 'mysql_da'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,47 +52,6 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],
-        ],
-
-
-        'mysql_da' => [
-            'driver' => 'mysql',
-            'url' => env('DATABASE_URL_da'),
-            'host' => env('DB_HOST_da', '127.0.0.1'),
-            'port' => env('DB_PORT_da', '3306'),
-            'database' => env('DB_DATABASE_da', 'forge'),
-            'username' => env('DB_USERNAME_da', 'forge'),
-            'password' => env('DB_PASSWORD_da', ''),
-            'unix_socket' => env('DB_SOCKET_da', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'strict' => true,
-            'engine' => null,
-            'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA_da'),
-            ]) : [],
-        ],
-
-        'mysql_daa' => [
-            'driver' => 'mysql',
-            'url' => env('DATABASE_URL_daa'),
-            'host' => env('DB_HOST_daa', '127.0.0.1'),
-            'port' => env('DB_PORT_daa', '3306'),
-            'database' => env('DB_DATABASE_daa', 'forge'),
-            'username' => env('DB_USERNAME_daa', 'forge'),
-            'password' => env('DB_PASSWORD_daa', ''),
-            'unix_socket' => env('DB_SOCKET_daa', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',

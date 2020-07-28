@@ -12,7 +12,6 @@ class BlogPostsTableSeeder extends Seeder
      */
     public function run()
     {
-                // DB::disableQueryLog();
-        factory(\App\Models\BlogPost::class, 5)->create();
+        factory(\App\Models\BlogPost::class, 100)->create();
     }
 }
