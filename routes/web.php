@@ -50,7 +50,7 @@ use Illuminate\Support\Facades\Route;
     });
 
     Route::group($groupedata, function () {
-        $methods = ['index', 'edit', 'update', 'create', 'store'];
+        $methods = ['index', 'show', 'edit', 'update', 'create', 'store'];
         Route::resource('posts', 'PostController')
             ->only($methods)
             ->names('blog.admin.posts');
