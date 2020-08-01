@@ -96,7 +96,7 @@ class BlogPostRepository extends CoreRepository //implements Interface
           ->startConditions()
           ->select($collumns)
           ->orderBy('id', 'DESC')
-          ->with(['category', 'user'])
+          ->with(['blog_category', 'user'])
           // ->with([
           //     'category'=>function($query){
           //       $query = select('id', 'title');
