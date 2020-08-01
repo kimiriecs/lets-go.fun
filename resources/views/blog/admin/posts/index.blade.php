@@ -43,7 +43,7 @@
                                         <td>
                                             <a href="{{ route('blog.admin.posts.show', $post->id) }}">{{ $post->title }}</a>
                                         </td>
-                                        <td>{{ $post->slug }}</td>
+                                        {{--  <td>{{ $post->slug }}</td>  --}}
                                         <td>{{ $post->is_published ? \Carbon\Carbon::parse($post->published_at)->format('d.M H:i') : '' }}</td>
                                     </tr>
                                 @endforeach
