@@ -25,7 +25,7 @@ class BlogPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\BelongsTo
      */
-    public function author()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
