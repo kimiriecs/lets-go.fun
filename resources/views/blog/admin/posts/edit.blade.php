@@ -5,10 +5,10 @@
 {{--  @php /**@var \App\Models\BlogCategory $item*/ @endphp  --}}
 
 @if ($item->exists)
-<form action="{{ route('blog.admin.categories.update', $item->id) }}" method="POST">
+<form action="{{ route('blog.admin.posts.update', $item->id) }}" method="POST">
     @method('PATCH')
 @else
-<form action="{{ route('blog.admin.categories.store', $item->id) }}" method="POST">  
+<form action="{{ route('blog.admin.posts.store', $item->id) }}" method="POST">  
 @endif
 
     @csrf
@@ -42,11 +42,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 {{--  <h1>тест</h1>  --}}
-                @include('blog.admin.categories.includes.item_edit_main_col')
+                @include('blog.admin.posts.includes.item_edit_main_col')
             </div>
             <div class="col-md-3">
                 {{--  <h1>тест</h1>  --}}
-                @include('blog.admin.categories.includes.item_edit_add_col')
+                @include('blog.admin.posts.includes.item_edit_add_col')
             </div>
         </div>
     </div>
