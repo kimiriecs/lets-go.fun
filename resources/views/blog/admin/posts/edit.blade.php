@@ -2,43 +2,19 @@
 
 @section('content')
 
-{{--  @php /**@var \App\Models\BlogCategory $item*/ @endphp  --}}
+    <div class="container">
+
+    {{--  @php /**@var \App\Models\BlogPost $item*/ @endphp  --}}
+
+@include('blog.admin.posts.includes.result_messages')
 
 @if ($item->exists)
 <form action="{{ route('blog.admin.posts.update', $item->id) }}" method="POST">
     @method('PATCH')
 @else
-<form action="{{ route('blog.admin.posts.store', $item->id) }}" method="POST">  
+<form action="{{ route('blog.admin.posts.store') }}" method="POST">  
 @endif
-
-    @csrf
-    <div class="container">
-        {{--  @php /**@var \Illuminate\Support\ViewErrorBag $errors*/ @endphp  --}}
-        @if ($errors->any())
-            <div class="row justify-content-center">
-                <div class="col-md-11">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                        {{--  {!! dd($errors->all(':message')) !!}  --}}
-                        {{ $errors->first() }}
-                      </div>
-                </div>
-            </div>
-        @endif
-        @if (session('success'))
-            <div class="row justify-content-center">
-                <div class="col-md-11">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                       {{ session()->get('success') }}
-                      </div>
-                </div>
-            </div>
-        @endif
+@csrf
         <div class="row justify-content-center">
             <div class="col-md-8">
                 {{--  <h1>тест</h1>  --}}
@@ -51,5 +27,22 @@
         </div>
     </div>
 </form>
+<hr>
+@if ($item->exists)
+    <form action="{{ route('blog.admin.posts.destroy', $item->id) }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card card-blocK">
+                    <div class="card-body ml-auto">
+                        <button type="submit" class="btn btn-link btn-danger">Удалить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </form>
+@endif
 
 @endsection

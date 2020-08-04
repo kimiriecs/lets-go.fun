@@ -1,21 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-
-<div class="container">
-{{--  @php /**@var \App\Models\BlogCategory $item*/ @endphp  --}}
-
-@if ($item->exists)
-<form action="{{ route('blog.admin.categories.update', $item->id) }}" method="POST">
-    @method('PATCH')
-    {{--  {!! dd($item->id) !!}  --}}
-@else
-<form action="{{ route('blog.admin.categories.store') }}" method="POST">  
-@endif
-
-    @csrf
-    
-        {{--  @php /**@var \Illuminate\Support\ViewErrorBag $errors*/ @endphp  --}}
+{{--  @php /**@var \Illuminate\Support\ViewErrorBag $errors*/ @endphp  --}}
         @if ($errors->any())
             <div class="row justify-content-center">
                 <div class="col-md-11">
@@ -41,17 +24,3 @@
                 </div>
             </div>
         @endif
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                {{--  <h1>тест</h1>  --}}
-                @include('blog.admin.categories.includes.item_edit_main_col')
-            </div>
-            <div class="col-md-3">
-                {{--  <h1>тест</h1>  --}}
-                @include('blog.admin.categories.includes.item_edit_add_col')
-            </div>
-        </div>
-    </form>
-</div>
-
-@endsection
