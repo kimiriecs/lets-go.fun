@@ -12,19 +12,37 @@
             </div>
             <div class="card-body">
                 <div class="card-title"></div>
-                <ul class="nav nav-tabs" id="category-edit" role="tablist">
+                <ul class="nav nav-tabs" id="post-edit" role="tablist">
                     <li class="nav-item" role="">
-                        <a class="nav-link active" id="main-data-tab" data-toggle="tab" href="#main-data" role="tab"
-                            aria-controls="main-data-panel" aria-selected="true">Основные данные</a>
+                        <a class="nav-link active" 
+                            id="main-data-tab" 
+                            data-toggle="tab" 
+                            href="#main-data-panel" 
+                            role="tab"
+                            aria-controls="main-data-panel" 
+                            aria-selected="true"
+                            >
+                            Основные данные</a>
                     </li>
                     <li class="nav-item" role="">
-                        <a class="nav-link" id="add-data-tab" data-toggle="tab" href="#add-data" role="tab"
-                            aria-controls="add-data-panel" aria-selected="true">Дополнительные данные</a>
+                        <a class="nav-link" 
+                            id="add-data-tab" 
+                            data-toggle="tab" 
+                            href="#add-data-panel" 
+                            role="tab"
+                            aria-controls="add-data-panel" 
+                            aria-selected="false"
+                            >
+                            Дополнительные данные
+                        </a>
                     </li>
                 </ul>
-                <div class="tab-content" id="main-data-tab-сontent">
-                    <div class="tab-pane fade show active" id="main-data-panel" role="tabpanel"
-                        aria-labelledby="main-data-tab">
+                <div class="tab-content" id="tab-сontent">
+                    <div class="tab-pane fade show active" 
+                            id="main-data-panel" 
+                            role="tabpanel"
+                            aria-labelledby="main-data-tab"
+                            >
                         <div class="form-group">
                             <label for="title">Заголовок</label>
                             <input name="title" id="title" value="{{ $item->title }}" type="text" class="form-control"
@@ -33,15 +51,16 @@
                         
                         <div class="form-group">
                             <label for="content_raw">Статья</label>
-                            <textarea name="content_raw" id="content_raw" class="form-control" rows="25">
+                            <textarea name="content_raw" id="content_raw" class="form-control" rows="15">
                                 {{ old('content_raw', $item->content_raw) }}
                             </textarea>
                         </div>
                     </div>
-                </div>
-                <div class="tab-content" id="add-data-tab-сontent">
-                    <div class="tab-pane fade show active" id="add-data-panel" role="tabpanel"
-                        aria-labelledby="add-data-tab">
+                    <div class="tab-pane fade" 
+                            id="add-data-panel" 
+                            role="tabpanel"
+                            aria-labelledby="add-data-tab"
+                            >
                         <div class="form-group">
                             <label for="category_id">Категория</label>
                             <select name="category_id" id="category_id" class="form-control"
@@ -74,9 +93,9 @@
                         </div>
                         <div class="form-check">
                             
-                            <input name="is_published" type="hidden" class="form-check-input" value="0">
+                            <input name="is_published" type="hidden" class="form-check-input" value="">
 
-                            <input name="is_published" type="check-box" value="{{ $item->is_published }}"
+                            <input name="is_published" type="checkbox" value="{{ $item->is_published }}"
                                 @if ($item->is_published)
                                     checked="checked"
                                 @endif

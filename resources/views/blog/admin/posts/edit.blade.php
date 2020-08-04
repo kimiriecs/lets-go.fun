@@ -25,7 +25,6 @@
                 @include('blog.admin.posts.includes.item_edit_add_col')
             </div>
         </div>
-    </div>
 </form>
 <hr>
 @if ($item->exists)
@@ -44,5 +43,5 @@
         </div>
     </form>
 @endif
-
+</div>
 @endsection

@@ -49839,8 +49839,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! S:\OSPanel\domains\lets-go.fun\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! S:\OSPanel\domains\lets-go.fun\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! G:\OSPanel\domains\lets-go.fun.loc\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! G:\OSPanel\domains\lets-go.fun.loc\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
