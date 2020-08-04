@@ -107,7 +107,9 @@ class PostController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        dd(__METHOD__, $id);
+        dd(__METHOD__, $id, 
+        $request->all()
+        );
     }
 
     /**
@@ -118,6 +120,8 @@ class PostController extends BaseController
      */
     public function destroy($id)
     {
-        dd(__METHOD__, $id);
+        dd(__METHOD__, $id, 
+        request()->all()
+        );
     }
 }
