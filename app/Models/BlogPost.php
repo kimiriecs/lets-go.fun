@@ -18,7 +18,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string                     $slug
  * @property string                     $blog_category_id
  * @property string                     $excerpt
- * @property boolean                     $is_published
+ * @property string                     $content_raw
+ * @property string                     $published_at
+ * @property boolean                    $is_published
  */
 class BlogPost extends Model
 {
@@ -30,7 +32,10 @@ class BlogPost extends Model
         'slug',
         'blog_category_id',
         'excerpt',
+        'content_raw',
         'is_published',
+        'published_at',
+        'user_id',
     ];
 
     /**
