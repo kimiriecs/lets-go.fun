@@ -30,7 +30,7 @@ class BlogPost extends Model
     [
         'title',
         'slug',
-        'category_id',
+        'blog_category_id',
         'excerpt',
         'content_raw',
         'is_published',
