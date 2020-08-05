@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label for="category_id">Категория</label>
                             <select name="category_id" id="category_id" class="form-control"
-                                placeholder="Категория" required>
+                                placeholder="Категория">
 
                                 @foreach ($categoryList as $categoryOption)
 
