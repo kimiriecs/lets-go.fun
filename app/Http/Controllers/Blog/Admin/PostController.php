@@ -111,9 +111,9 @@ class PostController extends BaseController
     public function update(BlogPostUpdateRequest $request, $id)
     // public function update(Request $request, $id)
     {
-        dd(__METHOD__, $id, 
-        $request->all()
-        );
+        // dd(__METHOD__, $id, 
+        // $request->all()
+        // );
 
 
         $item = $this->blogPostRepository->getEdit($id);
