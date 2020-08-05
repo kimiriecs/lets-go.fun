@@ -108,8 +108,8 @@ class PostController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function update(BlogPostUpdateRequest $request, $id)
-    public function update(Request $request, $id)
+    public function update(BlogPostUpdateRequest $request, $id)
+    // public function update(Request $request, $id)
     {
         dd(__METHOD__, $id, 
         $request->all()
