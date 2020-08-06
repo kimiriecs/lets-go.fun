@@ -39,9 +39,9 @@
                                     <tr @if (!$post->is_published) style="background-color:#ccc;"@endif>
                                         <td>{{ $post->id }}</td>
                                         <td>{{ $post->user->name }}</td>
-                                        <td>{{ $post->blogCategory->title }}</td>
+                                        <td>{{ $post->сategory->title }}</td>
                                         {{--  <td>{{ $post->user_id }}</td>
-                                        <td>{{ $post->blog_category_id }}</td>  --}}
+                                        <td>{{ $post->category_id }}</td>  --}}
                                         <td>
                                             <a href="{{ route('blog.admin.posts.edit', $post->id) }}">{{ $post->title }}</a>
                                         </td>

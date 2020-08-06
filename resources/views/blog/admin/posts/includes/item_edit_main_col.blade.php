@@ -69,7 +69,7 @@
                                 @foreach ($categoryList as $categoryOption)
 
                                 <option value="{{ $categoryOption->id }}"
-                                    @if ($categoryOption->id == $item->blog_category_id)
+                                    @if ($categoryOption->id == $item->category_id)
                                     selected
                                     @endif
                                     >

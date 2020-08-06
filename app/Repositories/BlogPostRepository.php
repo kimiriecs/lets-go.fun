@@ -90,13 +90,13 @@ class BlogPostRepository extends CoreRepository //implements Interface
       'is_published',
       'published_at',
       'user_id', 
-      'blog_category_id'];
+      'category_id'];
 
     $result = $this
           ->startConditions()
           ->select($collumns)
           ->orderBy('id', 'DESC')
-          ->with(['blogCategory', 'user'])
+          ->with(['сategory', 'user'])
           // ->with([
           //     'category'=>function($query){
           //       $query = select('id', 'title');

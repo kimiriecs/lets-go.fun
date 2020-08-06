@@ -30,7 +30,7 @@ class BlogPost extends Model
     [
         'title',
         'slug',
-        'blog_category_id',
+        'category_id',
         'excerpt',
         'content_raw',
         'is_published',
@@ -43,7 +43,7 @@ class BlogPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\BelongsTo
      */
-    public function blogCategory()
+    public function сategory()
     {
         return $this->belongsTo(BlogCategory::class);
     }

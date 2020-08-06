@@ -16,7 +16,7 @@ class CreateBlogPostsTable extends Migration
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('blog_category_id')->constrained();
+            $table->foreignId('category_id')->constrained();
             // $table->unsignedBigInteger('user_id');
             // $table->unsignedBigInteger('blog_category_id');
 
