@@ -43,7 +43,7 @@ class BlogPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\BelongsTo
      */
-    public function сategory()
+    public function blogCategory()
     {
         return $this->belongsTo(BlogCategory::class);
     }
