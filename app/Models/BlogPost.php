@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-// use App\Models\User;
-// use App\Models\BlogCategory;
+use App\Models\User;
+use App\Models\BlogCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -43,7 +43,7 @@ class BlogPost extends Model
      *
      * @return \Illuminate\Database\Eloquent\BelongsTo
      */
-    public function blogCategory()
+    public function category()
     {
         return $this->belongsTo(BlogCategory::class);
     }
