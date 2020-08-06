@@ -40,6 +40,11 @@
                 right: 10px;
                 top: 18px;
             }
+            .top-left {
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
 
             .content {
                 text-align: center;
@@ -78,6 +83,10 @@
                         @endif
                     @endauth
                 </div>
+                <div class="top-left links">
+                    <a href="{{ route('blog.admin.categories.index') }}">Categories</a>
+                    <a href="{{ route('blog.admin.posts.index') }}">Posts</a>
+                </div>
             @endif
 
             <div class="content">
@@ -94,8 +103,6 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <a href="{{ route('blog.admin.categories.index') }}">Categories</a>
-                    <a href="{{ route('blog.admin.posts.index') }}">Posts</a>
                 </div>
             </div>
         </div>
