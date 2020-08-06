@@ -27,7 +27,7 @@ $factory->define(\App\Models\BlogPost::class, function (Faker $faker) {
 
     $data = [
         'user_id' => (rand(1, 5) == 5) ? 1 : 2,
-        'category_id' => rand(1, 11),
+        'category_id' => rand(1, 10),
         'slug' => Str::slug($title),
         'title' => $title,
         'excerpt' => $faker->text(rand(40, 100)),

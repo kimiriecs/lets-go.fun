@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * Class BlogPost
  * 
  * @package App\Models
- * @property App\Models\BlogCategory    $blogCategory
+ * @property App\Models\BlogCategory    $category
  * @property App\Models\User            $user
  * @property string                     $title
  * @property string                     $slug
