@@ -34,8 +34,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <a href="{{ route('blog.admin.categories.index') }}">Categories</a>
-                        <a href="{{ route('blog.admin.posts.index') }}">Posts</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('blog.admin.categories.index') }}">Categories</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('blog.admin.posts.index') }}">Posts</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
