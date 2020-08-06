@@ -44,7 +44,7 @@ class BlogPostRepository extends CoreRepository //implements Interface
     */
     
 
-    $collumns = implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title']);
+    $columns = implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title']);
 
     /* OLD
       $result_1[] = $this->startConditions()->all();
@@ -67,7 +67,7 @@ class BlogPostRepository extends CoreRepository //implements Interface
     
     $result = $this
         ->startConditions()
-        ->selectRaw($collumns) // ->selectRaw(implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title'])) 
+        ->selectRaw($columns) // ->selectRaw(implode(', ', ['id', 'CONCAT (id, ". ", title) AS id_title'])) 
         ->toBase() //преобразует полученную коллекцию в STD_class
         ->get();
 
@@ -83,7 +83,7 @@ class BlogPostRepository extends CoreRepository //implements Interface
    */
   public function getAllWithPaginate($perPage = null)
   {
-    $collumns = [
+    $columns = [
       'id',
       'title',
       'slug',
@@ -94,7 +94,7 @@ class BlogPostRepository extends CoreRepository //implements Interface
 
     $result = $this
           ->startConditions()
-          ->select($collumns)
+          ->select($columns)
           ->orderBy('id', 'DESC')
           ->with(['сategory', 'user'])
           // ->with([
