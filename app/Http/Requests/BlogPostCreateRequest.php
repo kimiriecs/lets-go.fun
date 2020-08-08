@@ -31,4 +31,36 @@ class BlogPostUpdateRequest extends FormRequest
                 'category_id'           => 'required|integer|exists:blog_categories,id'
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+                'title.required'          => 'Введите :attribute статьи',
+                // 'slug.  '              => ' ',
+                // 'excerpt.  '           => ' ',
+                'content_raw.min'         => 'Минимальная длина статьи :min символов',
+                // 'category_id.  '       => ''
+        ];
+    }
+
+    /**
+     * Get the custom attributes for the defined validator errors.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+                'title'             => 'заголовок',
+                // 'slug'           => ' ',
+                // 'excerpt'        => ' ',
+                // 'content_raw'       => '',
+                // 'category_id'    => ''
+        ];
+    } 
 }

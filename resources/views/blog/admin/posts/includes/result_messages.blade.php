@@ -7,7 +7,13 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                         {{--  {!! dd($errors->all(':message')) !!}  --}}
-                        {{ $errors->first() }}
+                        <ul>
+                            @foreach ($errors->all() as $errorTxt)
+                            <li>
+                                {{ $errorTxt }}
+                            </li>
+                            @endforeach
+                        </ul>
                       </div>
                 </div>
             </div>
