@@ -66,4 +66,32 @@ class BlogCategory extends Model
     {
         return $this->id === BlogCategory::ROOT;
     }
+
+
+    /*
+     * Mutators test
+     
+        //  /**
+        //  * Accessor example
+        //  *
+        //  * @param [type] $valueFromObject
+        //  * @return bool|mixed|null|string|string[]
+        //  */
+        // public function getTitleAttribute($valueFromObject)
+        // {
+        //     return mb_strtoupper($valueFromObject);
+        // }
+
+        // /**
+        //  * Mutator example
+        //  *
+        //  * @param [type] $incomingValue
+        //  * @return void
+        //  */
+        // public function setTitleAttribute($incomingValue)
+        // {
+        //     $this->attributes['title'] = mb_strtolower($incomingValue);
+        // }
+        // */
+      
 }
