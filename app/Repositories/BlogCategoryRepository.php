@@ -90,7 +90,7 @@ class BlogCategoryRepository extends CoreRepository //implements Interface
           ->startConditions()
           ->select($columns)
           ->with([
-            'parentCategory:id, title',
+            'parentCategory:id,title',
           ])
           ->paginate($perPage);
           
