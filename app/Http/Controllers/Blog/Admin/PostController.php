@@ -48,7 +48,9 @@ class PostController extends BaseController
     public function index()
     {
         $paginator = $this->blogPostRepository->getAllWithPaginate(5);
+
         // dd(__METHOD__, $paginator);
+
         return view('blog.admin.posts.index', compact('paginator'));
     }
 
@@ -110,12 +112,20 @@ class PostController extends BaseController
      * @return \Illuminate\Http\Response
      */
     public function update(BlogPostUpdateRequest $request, $id)
+
     // public function update(Request $request, $id)
     {
-        // dd(__METHOD__, $id, 
-        // $request->all()
-        // );
+        // dd(__METHOD__, $id, $request->all());
 
+        /*
+        * Ушло в BlogPostObserver
+            if (empty($data['slug'])) {
+                $data['slug'] = Str::slug($data['title']);
+            }
+            if (empty($item->published_at) && $data['is_published']) {
+                $data['published_at'] = Carbon::now();
+            } 
+        */
 
         $item = $this->blogPostRepository->getEdit($id);
         if (empty($item)) {
@@ -125,12 +135,6 @@ class PostController extends BaseController
         }
 
         $data = $request->all();
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['title']);
-        }
-        if (empty($item->published_at) && $data['is_published']) {
-            $data['published_at'] = Carbon::now();
-        }
 
         $result = $item->update($data);
         if ($result) {

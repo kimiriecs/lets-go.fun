@@ -99,7 +99,8 @@ class CategoryController extends BaseController
 
     public function update(BlogCategoryUpdateRequest $request, $id)
     {
-        /* OLD
+        /* 
+        *OLD
             //dd($request, $id);
         
             // $rules = [
@@ -129,6 +130,14 @@ class CategoryController extends BaseController
              //$item = BlogCategory::find($id);
         */
     
+        /*
+        * Ушло в BlogCategoryObserver
+            $data = $request->input();
+            if (empty($data['slug'])) {
+                $data['slug'] = Str::slug($data['title']);
+            }
+        */
+        
         $item = $this->blogCategoryRepository->getEdit($id);
         
         if (empty($item)) {
@@ -179,10 +188,14 @@ class CategoryController extends BaseController
      */
     public function store(BlogCategoryCreateRequest $request)
     {
-        $data = $request->input();
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['title']);
-        }
+        
+        /*
+        * Ушло в BlogCategoryObserver
+            $data = $request->input();
+            if (empty($data['slug'])) {
+                $data['slug'] = Str::slug($data['title']);
+            }
+        */
 
         //Создаст объект но не добавит в базу данных
 
