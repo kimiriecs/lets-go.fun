@@ -41,7 +41,7 @@
                             <a class="nav-link" href="{{ route('blog.admin.posts.index') }}">Posts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('digging_deeper.collections') }}">Posts</a>
+                            <a class="nav-link" href="{{ route('digging_deeper.collections') }}">Collections</a>
                         </li>
                     </ul>
 

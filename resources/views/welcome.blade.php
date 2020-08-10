@@ -86,7 +86,7 @@
                 <div class="top-left links">
                     <a href="{{ route('blog.admin.categories.index') }}">Categories</a>
                     <a href="{{ route('blog.admin.posts.index') }}">Posts</a>
-                    <a href="{{ route('digging_deeper.collections') }}">Posts</a>
+                    <a href="{{ route('digging_deeper.collections') }}">Collections</a>
                 </div>
             @endif
 
