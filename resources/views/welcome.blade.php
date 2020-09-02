@@ -87,6 +87,17 @@
                     <a href="{{ route('blog.admin.categories.index') }}">Categories</a>
                     <a href="{{ route('blog.admin.posts.index') }}">Posts</a>
                     <a href="{{ route('digging_deeper.collections') }}">Collections</a>
+                    {{--  @auth
+                        <a href="{{ route('blog.admin.categories.index') }}">Categories</a>
+                        <a href="{{ route('blog.admin.posts.index') }}">Posts</a>
+                        <a href="{{ route('digging_deeper.collections') }}">Collections</a>
+                    @else
+                    <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth  --}}
                 </div>
             @endif
 

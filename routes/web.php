@@ -40,6 +40,7 @@ use Illuminate\Support\Facades\Route;
     //admin blog dashbord
     
     $groupedata = [
+        'middleware' => 'auth',
         'namespace' => 'Blog\Admin',
         'prefix' => 'admin/blog',
     ];
