@@ -27,24 +27,35 @@ use Illuminate\Support\Facades\Route;
     Auth::routes();
     
     Route::get('/home', 'HomeController@index')->name('home');
+
+    $groupedataCollections = [
+        'middleware' => 'auth',
+        'prefix' => 'digging_deeper'
+    ];
     
-    Route::group(['prefix' => 'digging_deeper'], function() {
+    Route::group($groupedataCollections, function() {
         Route::get('collections', 'DigginDeeperController@collections')->name('digging_deeper.collections');
     });
 
-    Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function() {
+    $groupedataPosts = [
+        'middleware' => 'auth',
+        'namespace' => 'Blog',
+        'prefix' => 'blog'
+    ];
+
+    Route::group($groupedataPosts, function() {
         Route::resource('posts', 'PostController')->names('blog.posts');
     });
     
     
     //admin blog dashbord
     
-    $groupedata = [
+    $groupedataAdmin = [
         'middleware' => 'auth',
         'namespace' => 'Blog\Admin',
         'prefix' => 'admin/blog',
     ];
-    Route::group($groupedata, function () {
+    Route::group($groupedataAdmin, function () {
         $methods = ['index', 'edit', 'update', 'create', 'store'];
         Route::resource('categories', 'CategoryController')
             ->only($methods)
@@ -54,7 +65,7 @@ use Illuminate\Support\Facades\Route;
             // ]);   
     });
 
-    Route::group($groupedata, function () {
+    Route::group($groupedataAdmin, function () {
         $methods = ['index', 'show', 'edit', 'update', 'create', 'store', 'destroy'];
         Route::resource('posts', 'PostController')
             ->only($methods)
