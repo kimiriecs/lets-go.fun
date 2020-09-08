@@ -6,6 +6,7 @@ use App\Models\BlogPost;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use App\Jobs\BlogPostAfterCreateJob;
 use App\Repositories\BlogPostRepository;
 use App\Http\Requests\BlogPostCreateRequest;
 use App\Http\Requests\BlogPostUpdateRequest;
