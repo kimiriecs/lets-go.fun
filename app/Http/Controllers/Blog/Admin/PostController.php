@@ -83,15 +83,39 @@ class PostController extends BaseController
 
         $data = $request->input();
 
-        $item = (new BlogPost())->create($data);
+        // -----------OLD---------------
+
+        // $item = (new BlogPost())->create($data);
+
+        // if ($item) {
+        //     return redirect()->route('blog.admin.posts.edit', [$item->id])
+        //             ->with(['success' => 'Успешно сохранено']);
+        // } else {
+        //     return back()->withErrors(['msg' => 'Ошибка сохранения'])
+        //             ->withInput();
+        // }
         
+
+        // -----------NEW---------------
+        $item = BlogPost::create($data);
+
         if ($item) {
+
+            $jog = blogPostAfterCreateJob($item);
+
+            $this -> dispatch($jog);
+
             return redirect()->route('blog.admin.posts.edit', [$item->id])
-                    ->with(['success' => 'Успешно сохранено']);
+                        ->with(['success'=>'Успешно сохранено']);
+
         } else {
-            return back()->withErrors(['msg' => 'Ошибка сохранения'])
+            
+            return back()->withErrors(['msg'=>'Ошибка сохранения'])
                     ->withInput();
+
         }
+        
+       
     }
 
     /**
