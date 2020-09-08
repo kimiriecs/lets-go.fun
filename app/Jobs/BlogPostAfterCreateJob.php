@@ -35,6 +35,6 @@ class BlogPostAfterCreateJob implements ShouldQueue
      */
     public function handle()
     {
-        logs()->info("Создана новая запись в блоге [{$this->$blogPost->id}]");
+        logs()->info("Создана новая запись в блоге [{$this->blogPost->id}]");
     }
 }
