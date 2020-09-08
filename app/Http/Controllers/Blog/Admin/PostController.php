@@ -216,7 +216,7 @@ class PostController extends BaseController
 
         if ($result) {
 
-            BlogPostAfterDeleteJob::dispatc($id)->delay(20);
+            BlogPostAfterDeleteJob::dispatch($id)->delay(20);
 
             //Другие варианты запуска Job
 
