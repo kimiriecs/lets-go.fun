@@ -86,40 +86,40 @@ class PostController extends BaseController
 
         // -----------OLD---------------
 
-        $item = (new BlogPost())->create($data);
-
-        if ($item) {
-
-            $jog = new BlogPostAfterCreateJob($item);
-
-            $this -> dispatch($jog);
-            
-            return redirect()->route('blog.admin.posts.edit', [$item->id])
-                    ->with(['success' => 'Успешно сохранено']);
-        } else {
-            return back()->withErrors(['msg' => 'Ошибка сохранения'])
-                    ->withInput();
-        }
-        
-
-        // -----------NEW---------------
-        // $item = BlogPost::create($data);
+        // $item = (new BlogPost())->create($data);
 
         // if ($item) {
 
-        //     $jog = new BlogPostAfterCreateJob($item);
+        //     $job = new BlogPostAfterCreateJob($item);
 
-        //     $this -> dispatch($jog);
+        //     $this -> dispatch($job);
 
         //     return redirect()->route('blog.admin.posts.edit', [$item->id])
-        //                 ->with(['success'=>'Успешно сохранено']);
-
+        //             ->with(['success' => 'Успешно сохранено']);
         // } else {
-            
-        //     return back()->withErrors(['msg'=>'Ошибка сохранения'])
+        //     return back()->withErrors(['msg' => 'Ошибка сохранения'])
         //             ->withInput();
-
         // }
+        
+
+        // -----------NEW---------------
+        $item = BlogPost::create($data);
+
+        if ($item) {
+
+            $job = new BlogPostAfterCreateJob($item);
+
+            $this -> dispatch($job);
+
+            return redirect()->route('blog.admin.posts.edit', [$item->id])
+                        ->with(['success'=>'Успешно сохранено']);
+
+        } else {
+            
+            return back()->withErrors(['msg'=>'Ошибка сохранения'])
+                    ->withInput();
+
+        }
         
        
     }
