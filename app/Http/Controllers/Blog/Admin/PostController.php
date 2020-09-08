@@ -89,6 +89,11 @@ class PostController extends BaseController
         $item = (new BlogPost())->create($data);
 
         if ($item) {
+
+            $jog = new BlogPostAfterCreateJob($item);
+
+            $this -> dispatch($jog);
+            
             return redirect()->route('blog.admin.posts.edit', [$item->id])
                     ->with(['success' => 'Успешно сохранено']);
         } else {
