@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Jobs\BlogPostAfterCreateJob;
+use App\Jobs\BlogPostAfterDeleteJob;
 use App\Repositories\BlogPostRepository;
 use App\Http\Requests\BlogPostCreateRequest;
 use App\Http\Requests\BlogPostUpdateRequest;
@@ -214,6 +215,25 @@ class PostController extends BaseController
         //$result = BlogPost::find($id)->ForceDelete();
 
         if ($result) {
+
+            BlogPostAfterDeleteJob::dispatc($id)->delay(20);
+
+            //Другие варианты запуска Job
+
+            //BlogPostAfterDeleteteJob::dispatchNow($id);  // выполнится немедленно 
+                                                            // независимо от того есть ли 'implements ShouldQueue'
+
+            // dispatch(new BlogPostAfterDeleteteJob($id))->delay(20);  // helper dispatch(new App\Jobs\SomeJob)
+            //dispatchNow(new BlogPostAfterDeleteteJob($id));    // helper dispatch(new App\Jobs\SomeJob)
+
+            //$this->dispatch(new BlogPostAfterDeleteteJob($id))
+            //$this->dispatch_now(new BlogPostAfterDeleteteJob($id))
+
+            //$job = new BlogPOstAfterDeleteteJob($id);
+            //$job->handle();
+
+            //< Другие варианты запуска Job
+
             return redirect()
                 ->route('blog.admin.posts.index')
                 ->with(['success' => "Запись id[{$id}] успешно удалена"]);
