@@ -101,7 +101,7 @@ class PostController extends BaseController
 
         if ($item) {
 
-            $jog = blogPostAfterCreateJob($item);
+            $jog = new BlogPostAfterCreateJob($item);
 
             $this -> dispatch($jog);
 
